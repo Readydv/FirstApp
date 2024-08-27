@@ -9,7 +9,7 @@ namespace FirstApplicetion.ConsoleApp
         {
             const string MyName = "Даниил";
             Console.WriteLine(MyName);
-            Console.WriteLine("Мне 19 лет");
+            Console.WriteLine("\nМне 19 лет");
             Console.WriteLine("Привет всем!");
             Console.ReadKey();
         }
