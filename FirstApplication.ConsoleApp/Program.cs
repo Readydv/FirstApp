@@ -10,6 +10,7 @@ namespace FirstApplicetion.ConsoleApp
             string MyName;
             MyName = "Даниил";
             Console.WriteLine(MyName);
+            Console.ReadKey();
         }
     }
 }
