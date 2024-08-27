@@ -7,14 +7,14 @@ namespace FirstApplicetion.ConsoleApp
     {
         static void Main(string[] args)
         {
-            const string MyCity = "Салават";
-            const string MyName = "Даниил";
-            Console.WriteLine(MyName);
-            Console.WriteLine("\tМне 19 лет");
-            Console.WriteLine("\tПривет всем!");
-            Console.WriteLine("\tЯ живу в городе {0}", MyCity);
-            Console.WriteLine(MyName);
-            Console.WriteLine("\u0023");
+            const byte MyShoeSize = 42;
+            int MyAge = 19;
+            bool MyPet = true;
+            const string MyName = "Danya";
+            Console.WriteLine("My name is {0}", MyName);
+            Console.WriteLine("My age is {0}", MyAge);
+            Console.WriteLine("Do i have a pet? {0}", MyPet);
+            Console.WriteLine("My shoe size is {0}", MyShoeSize);
             Console.ReadKey();
         }
     }
