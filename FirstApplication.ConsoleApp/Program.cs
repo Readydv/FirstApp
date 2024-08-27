@@ -14,7 +14,7 @@ namespace FirstApplicetion.ConsoleApp
             Console.WriteLine("\tПривет всем!");
             Console.WriteLine("\tЯ живу в городе {0}", MyCity);
             Console.WriteLine(MyName);
-            Console.WriteLine("\u0040");
+            Console.WriteLine("\u0023");
             Console.ReadKey();
         }
     }
