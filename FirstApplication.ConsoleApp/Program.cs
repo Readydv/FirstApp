@@ -7,10 +7,14 @@ namespace FirstApplicetion.ConsoleApp
     {
         static void Main(string[] args)
         {
+            const string MyCity = "Салават";
             const string MyName = "Даниил";
             Console.WriteLine(MyName);
-            Console.WriteLine("\nМне 19 лет");
-            Console.WriteLine("Привет всем!");
+            Console.WriteLine("\tМне 19 лет");
+            Console.WriteLine("\tПривет всем!");
+            Console.WriteLine("\tЯ живу в городе {0}", MyCity);
+            Console.WriteLine(MyName);
+            Console.WriteLine("\u0040");
             Console.ReadKey();
         }
     }
