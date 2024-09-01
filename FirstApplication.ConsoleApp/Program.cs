@@ -7,14 +7,17 @@ namespace FirstApplicetion.ConsoleApp
     {
         static void Main(string[] args)
         {
-            const byte MyShoeSize = 42;
-            int MyAge = 19;
-            bool MyPet = true;
-            const string MyName = "Danya";
-            Console.WriteLine("My name is {0}", MyName);
-            Console.WriteLine("My age is {0}", MyAge);
-            Console.WriteLine("Do i have a pet? {0}", MyPet);
-            Console.WriteLine("My shoe size is {0}", MyShoeSize);
+            Console.WriteLine("Enter your name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter your age: ");
+            byte age = (byte) int.Parse(Console.ReadLine());
+            Console.WriteLine("Your name is {0} and age is {1}", name, age);
+            Console.Write("What os your favorite day of week?");
+            DayOfWeek day = (DayOfWeek) int.Parse(Console.ReadLine());
+            Console.WriteLine("Your favorite day is {0}", day);
+            Console.Write("Enter your birthdate: ");
+            var birthdate = Console.ReadLine();
+            Console.WriteLine("Your birthdate is {0}", birthdate);
             Console.ReadKey();
         }
     }
