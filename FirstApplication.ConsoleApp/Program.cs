@@ -38,7 +38,7 @@ namespace FirstApplicetion.ConsoleApp
                     Console.BackgroundColor = ConsoleColor.Yellow;
                     Console.ForegroundColor = ConsoleColor.Red;
 
-                    Console.WriteLine("Your color is cyan!");
+                    Console.WriteLine("Your color is Yellow!");
                     break;
             }
         }
