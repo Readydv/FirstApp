@@ -7,83 +7,26 @@ namespace FirstApplicetion.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Цикл While");
-            int k = 0;
-            while (k < 3)
+            Console.WriteLine("Введите слово");
+            var str = Console.ReadLine();
+            Console.WriteLine("Введите силу эха");
+            var deep = int.Parse(Console.ReadLine());
+
+            Echo(str, deep);
+        }
+        static void Echo(string saidworld, int deep)
+        {
+            var modif = saidworld;
+            if (modif.Length > 2)
             {
-                Console.WriteLine(k);
-                Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
-                switch (Console.ReadLine())
-                {
-                    case "red":
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine("Your color is red!");
-                        break;
-
-                    case "green":
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine("Your color is green!");
-                        break;
-
-                    case "Cyan":
-                        Console.BackgroundColor = ConsoleColor.Cyan;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine("Your color is Cyan");
-                        break;
-
-                    default:
-                        Console.BackgroundColor = ConsoleColor.Yellow;
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        Console.WriteLine("Your color is Yellow!");
-                        break;
-                }
-                k++;
+                modif = modif.Remove(0, 2);
             }
-            Console.WriteLine("Цикл do..While");
-            int t = 0;
-            do
+            Console.WriteLine("..." + modif);
+
+            if (deep > 1)
             {
-                Console.WriteLine(t);
-                Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
-                switch (Console.ReadLine())
-                {
-                    case "red":
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine("Your color is red!");
-                        break;
-
-                    case "green":
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine("Your color is green!");
-                        break;
-
-                    case "Cyan":
-                        Console.BackgroundColor = ConsoleColor.Cyan;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine("Your color is Cyan");
-                        break;
-
-                    default:
-                        Console.BackgroundColor = ConsoleColor.Yellow;
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        Console.WriteLine("Your color is Yellow!");
-                        break;
-                }
-                t++;
+                Echo(modif, deep - 1);
             }
-            while (t < 3);
         }
     }
 }
