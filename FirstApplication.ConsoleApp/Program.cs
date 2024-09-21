@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 using FirstApplication.ConsoleHelper;
 
 namespace FirstApplicetion.ConsoleApp
@@ -7,27 +8,85 @@ namespace FirstApplicetion.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите слово");
-            var str = Console.ReadLine();
-            Console.WriteLine("Введите силу эха");
-            var deep = int.Parse(Console.ReadLine());
-
-            Echo(str, deep);
+            var user = GetUserInput();
+            DisplayUserInfo(user);
         }
-        static void Echo(string saidworld, int deep)
+        static (string name, string lastname, int age, bool hasPet, string[] petNames, int favoriteColorsCount, string[] favoriteColors) GetUserInput()
         {
-            var modif = saidworld;
-            if (modif.Length > 2)
+            (string name, string lastname, int age, bool HasPet, string[] petNames, int favoriteColorsCount, string[] favoriteColors) User;
+            Console.WriteLine("Введите имя");
+            User.name = Console.ReadLine();
+            Console.WriteLine("Введите фамилию");
+            User.lastname = Console.ReadLine();
+            User.age = GetValidInput("Сколько вам лет?");
+            Console.WriteLine("Есть ли у Вас домашний питомец? Да, нет?");
+            var result = Console.ReadLine();
+            User.petNames = new string[0];
+            if (result == "Да")
             {
-                modif = modif.Remove(0, 2);
+                if (User.HasPet = true)
+                {
+                    int petCount = GetValidInput("Сколько у вас питомцев?");
+                    User.petNames = GetPetNames(petCount);
+                }
             }
-            Console.WriteLine("..." + modif);
+            else
+            {
+                User.HasPet = false;
+            }
+            User.favoriteColors = new string[0];
+            User.favoriteColorsCount = GetValidInput("Сколько у вас любимых цветов?");
+            User.favoriteColors = GetFavoriteColors(User.favoriteColorsCount);
+            return User;
+            
+        }
 
-            if (deep > 1)
+                static string[] GetPetNames(int count)
+                {
+                    string[] petNames = new string[count];
+                    for (int i = 0; i < count; i++)
+                    {
+                        Console.Write("Введите имя питомца {0}: ", i + 1);
+                        petNames[i] = Console.ReadLine();
+                    }
+                    return petNames;
+                }
+
+                static string[] GetFavoriteColors(int count)
+                {
+                    string[] favoriteColors = new string[count];
+                    for (int i = 0; i < count; i++)
+                    {
+                        Console.Write("Введите название любимого цвета {0}: ", i + 1);
+                        favoriteColors[i] = Console.ReadLine();
+                    }
+                    return favoriteColors;
+                }
+
+        static int GetValidInput(string message)
+        {
+            int result;
+            do
             {
-                Echo(modif, deep - 1);
+                Console.WriteLine(message);
             }
+            while (!int.TryParse(Console.ReadLine(), out result) || result <= 0);
+            return result;
+        }
+
+        static void DisplayUserInfo((string name, string lastname, int age, bool HasPet, string[] petNames, int favoriteColorsCount, string[] favoriteColors) user)
+        {
+            Console.WriteLine("Имя: {0}", user.name);
+            Console.WriteLine("Фамилия: {0}", user.lastname);
+            Console.WriteLine("Возраст: {0}", user.age);
+            Console.WriteLine("Наличие питомца: {0}", user.HasPet ? "Да" : "Нет");
+            if (user.HasPet)
+            {
+                Console.WriteLine("Имена питомцев: {0}", string.Join(", ", user.petNames));
+            }
+            Console.WriteLine("Любимые цвета: {0}", string.Join(", ", user.favoriteColors));
         }
     }
 }
+
 
